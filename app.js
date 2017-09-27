@@ -25,6 +25,7 @@ server.on('listening', function() {
 
 //Arduino
 const board = new five.Board();
+board.on("connect",function(){
 var led1;
 var led2;
 board.on("ready", function() {
@@ -35,24 +36,30 @@ board.on("ready", function() {
 //Socket
 io.on('connection', function (socket) {
 
-        socket.on('ledAmarillo:on', function () {
-           led1.on();
+        socket.on('ledAmarillo:prender', function (pin) {
+            led1.on();
+           setTimeout(()=>{console.log('esperando')},1000);
         });
 
-        socket.on('ledAmarillo:off', function () {
+        socket.on('ledAmarillo:apagar', function () {
             led1.off();
+            setTimeout(()=>{console.log('esperando apagar')},1000);
         });
-        socket.on('ledVerde:on', function () {
+        socket.on('ledVerde:titilar', function () {
            led2.on();
+           setTimeout(()=>{console.log('esperando')},1000);
         });
 
         socket.on('ledVerde:off', function () {
             led2.off();
+            setTimeout(()=>{console.log('esperando')},1000);
         });
         socket.on('blinkVerde:blink',function(){
           led1.blink(500);
+          setTimeout(()=>{console.log('esperando')},1000);
         });
         socket.on('blinkAmarillo:blink',function(){
           led2.blink(500);
+          setTimeout(()=>{console.log('esperando')},1000);
         });
     });

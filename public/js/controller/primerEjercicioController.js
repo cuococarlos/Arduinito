@@ -4,36 +4,18 @@ var mySocket = app.factory('mySocket',function(socketFactory){
 });
 app.controller("primerEjercicioController", function($scope,mySocket) {
 
-  Blockly.JavaScript["bloqueLedAmarillo"] = function(block) {
+Blockly.JavaScript["bloqueLedAmarillo"] = function(block) {
   var code;
   var dropdown_switch = block.getFieldValue("Switch");
-  if (dropdown_switch == "prender") {
-    code = "mySocket.emit('ledAmarillo:on');";
-  }
-  if (dropdown_switch == "apagar") {
-    code = "mySocket.emit('ledAmarillo:off');";
-  }
-  if(dropdown_switch == "titilar"){
-    code = "mySocket.emit('blinkAmarillo:blink');";
-  }
+  code = "mySocket.emit('ledAmarillo:" + dropdown_switch + ");";
   return code;
 };
 Blockly.JavaScript["bloqueLedVerde"] = function(block) {
   var code;
   var dropdown_switch = block.getFieldValue("Switch");
-  if (dropdown_switch == "prender") {
-    code = "mySocket.emit('ledVerde:on');";
-  }
-  if (dropdown_switch == "apagar") {
-    code = "mySocket.emit('ledVerde:off');";
-  }
-  if(dropdown_switch == "titilar"){
-    code = "mySocket.emit('blinkVerde:blink');";
-  }
+  code = "mySocket.emit('ledVerde:" + dropdown_switch + ");";
   return code;
 };
-
-
 
      $scope.runCode = function (){
           window.LoopTrap = 1000;
@@ -42,7 +24,7 @@ Blockly.JavaScript["bloqueLedVerde"] = function(block) {
           var code = Blockly.JavaScript.workspaceToCode(workspace);
           Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
           try{
-            eval(code);
+           eval(code);
           }catch(e){
             alert(e);
           }
