@@ -32,7 +32,7 @@ board.on("ready", function() {
    led1 = new five.Led(13);
    led2 = new five.Led(12);
  });
-
+});
 //Socket
 io.on('connection', function (socket) {
 
