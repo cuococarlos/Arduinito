@@ -6,7 +6,7 @@ var server = http.createServer(app);
 var five= require('johnny-five');
 var io = require('socket.io')(server);
 var port=3005;
-var leds = [];
+
 //ruteo provisorio
 app.get('/', function(req, res) {
   res.sendfile('public/index.html');
@@ -25,16 +25,14 @@ server.on('listening', function() {
 
 //Arduino
 const board = new five.Board();
+var leds = [];
 board.on("connect",function(){
-var led1;
-var led2;
 board.on("ready", function() {
 
   for (i = 0; i < 20; i++) {
       leds[i] = new five.Led(i);
   }
-   //led1 = new five.Led(13);
-   //led2 = new five.Led(12);
+
  });
 });
 //Socket

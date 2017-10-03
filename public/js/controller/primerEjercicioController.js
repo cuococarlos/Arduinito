@@ -34,14 +34,5 @@ Blockly.JavaScript["bloqueLed"] = function(block) {
     };
 
 
-/*
-    Blockly.JavaScript["bloqueLedVerde"] = function(block) {
-  var code;
-  var dropdown_switch = block.getFieldValue("Switch");
-  code = "mySocket.emit('ledVerde:" + dropdown_switch + ");";
-  return code;
-
-};
-*/
 
 })
