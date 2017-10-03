@@ -29,22 +29,32 @@ board.on("connect",function(){
 var led1;
 var led2;
 board.on("ready", function() {
-   led1 = new five.Led(13);
-   led2 = new five.Led(12);
+  var leds = [];
+  for (i = 0; i < 20; i++) { 
+      leds[i] = new five.Led(i);
+  }
+   //led1 = new five.Led(13);
+   //led2 = new five.Led(12);
  });
 });
 //Socket
 io.on('connection', function (socket) {
 
-        socket.on('ledAmarillo:prender', function (pin) {
-            led1.on();
-           setTimeout(()=>{console.log('esperando')},1000);
+        socket.on('led:prender', function (pin) {
+            leds[pin].on();
+            setTimeout(()=>{console.log('prendiendo')},1000);
         });
 
-        socket.on('ledAmarillo:apagar', function () {
+        socket.on('led:apagar', function () {
             led1.off();
-            setTimeout(()=>{console.log('esperando apagar')},1000);
+            setTimeout(()=>{console.log('apagando')},1000);
         });
+        socket.on('led:titilar',function(){
+          led2.blink(500);
+          setTimeout(()=>{console.log('titilando')},1000);
+        });
+
+/*
         socket.on('ledVerde:titilar', function () {
            led2.on();
            setTimeout(()=>{console.log('esperando')},1000);
@@ -58,8 +68,5 @@ io.on('connection', function (socket) {
           led1.blink(500);
           setTimeout(()=>{console.log('esperando')},1000);
         });
-        socket.on('blinkAmarillo:blink',function(){
-          led2.blink(500);
-          setTimeout(()=>{console.log('esperando')},1000);
-        });
+   */1111     
     });

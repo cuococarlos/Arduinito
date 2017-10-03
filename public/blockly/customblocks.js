@@ -1,7 +1,7 @@
-Blockly.Blocks['bloqueLedAmarillo'] = {
+Blockly.Blocks['bloqueLed'] = {
   init: function() {
     this.appendDummyInput("Left")
-        .appendField("Led Amarillo")
+        .appendField("Led")
         .appendField(new Blockly.FieldDropdown([["prender","prender"], ["apagar","apagar"],["titilar","titilar"]]), "Switch");
     this.appendDummyInput("Left")
          .appendField("PIN")
@@ -14,6 +14,8 @@ Blockly.Blocks['bloqueLedAmarillo'] = {
  this.setHelpUrl("");
   }
 };
+
+/*
 Blockly.Blocks['bloqueLedVerde'] ={
   init: function() {
     this.appendDummyInput("Left")
@@ -42,5 +44,3 @@ Blockly.Blocks['bloqueLedVerde'] ={
 //   }
 // };
 
-
-//Generator Stub
