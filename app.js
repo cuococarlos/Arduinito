@@ -6,7 +6,7 @@ var server = http.createServer(app);
 var five= require('johnny-five');
 var io = require('socket.io')(server);
 var port=3005;
-
+var leds = [];
 //ruteo provisorio
 app.get('/', function(req, res) {
   res.sendfile('public/index.html');
@@ -29,8 +29,8 @@ board.on("connect",function(){
 var led1;
 var led2;
 board.on("ready", function() {
-  var leds = [];
-  for (i = 0; i < 20; i++) { 
+
+  for (i = 0; i < 20; i++) {
       leds[i] = new five.Led(i);
   }
    //led1 = new five.Led(13);
@@ -38,35 +38,25 @@ board.on("ready", function() {
  });
 });
 //Socket
-io.on('connection', function (socket) {
+io.on("connection", function(socket) {
+  socket.on("led:prender", function(pin) {
+    leds[pin].on();
+    setTimeout(() => {
+      console.log("prendiendo");
+    }, 1000);
+  });
 
-        socket.on('led:prender', function (pin) {
-            leds[pin].on();
-            setTimeout(()=>{console.log('prendiendo')},1000);
-        });
-
-        socket.on('led:apagar', function () {
-            led1.off();
-            setTimeout(()=>{console.log('apagando')},1000);
-        });
-        socket.on('led:titilar',function(){
-          led2.blink(500);
-          setTimeout(()=>{console.log('titilando')},1000);
-        });
-
-/*
-        socket.on('ledVerde:titilar', function () {
-           led2.on();
-           setTimeout(()=>{console.log('esperando')},1000);
-        });
-
-        socket.on('ledVerde:off', function () {
-            led2.off();
-            setTimeout(()=>{console.log('esperando')},1000);
-        });
-        socket.on('blinkVerde:blink',function(){
-          led1.blink(500);
-          setTimeout(()=>{console.log('esperando')},1000);
-        });
-   */1111     
-    });
+  socket.on("led:apagar", function(pin) {
+    leds[pin].stop();
+    leds[pin].off();
+    setTimeout(() => {
+      console.log("apagando");
+    }, 1000);
+  });
+  socket.on("led:titilar", function(pin) {
+    leds[pin].blink(500);
+    setTimeout(() => {
+      console.log("titilando");
+    }, 1000);
+  });
+});
