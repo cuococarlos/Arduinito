@@ -8,7 +8,7 @@ Blockly.JavaScript["bloqueLed"] = function(block) {
   var code;
   var dropdown_switch = block.getFieldValue("Switch");
   var pin=block.getFieldValue("PIN");
-  removerCss("led-" + dropdown_switch);
+  removerCss("led-" + dropdown_switch,pin);
   code = "mySocket.emit('led:" + dropdown_switch + "'," + pin + ");";
   return code;
 };
@@ -28,9 +28,9 @@ Blockly.JavaScript["bloqueLed"] = function(block) {
           }
     };
 
-    function removerCss(newClass){
-      var clase = $('#led').attr('class');
-      $( "#led").removeClass(clase).addClass(newClass);
+    function removerCss(newClass,pin){
+      var clase = $('#led'+ pin).attr('class');
+      $( "#led"+ pin).removeClass(clase).addClass(newClass);
     };
 
 
