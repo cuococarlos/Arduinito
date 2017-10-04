@@ -15,6 +15,7 @@ Blockly.JavaScript["bloqueLed"] = function(block) {
 
 
      $scope.runCode = function (){
+		 $("#leds").html('');
           window.LoopTrap = 1000;
           Blockly.JavaScript.INFINITE_LOOP_TRAP =
               'if(--window.LoopTrap == 0) throw "Inifinite Loop";\n';
@@ -27,10 +28,18 @@ Blockly.JavaScript["bloqueLed"] = function(block) {
             alert(e);
           }
     };
-
+	
     function removerCss(newClass,pin){
-      var clase = $('#led'+ pin).attr('class');
-      $( "#led"+ pin).removeClass(clase).addClass(newClass);
+		if($("#" + pin).hasClass('led-prender') || $("#" + pin).hasClass('led-apagar') || $("#" + pin).hasClass('led-titilar') )
+		{
+			var clase = $('#'+ pin).attr('class');
+			$( "#"+ pin).removeClass(clase).addClass(newClass);
+		}
+		else
+		{
+			var html = "<div class='led-box'> <div id ='"+ pin + "' class='" + newClass + "'></div></div>";
+			$("#leds").append(html);
+		}
     };
 
 
