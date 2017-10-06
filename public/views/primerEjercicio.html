@@ -1,161 +1,168 @@
-<html lang="en">
+    <html lang="en">
 
-  <head>
+      <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-    <title>Arduinito</title>
+        <title>Arduinito</title>
 
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+        <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
-
-    <link href="../css/freelancer.min.css" rel="stylesheet">
-    <link href="../css/led.css" rel="stylesheet">
-
-  <script src="../blockly/blockly_compressed.js"></script>
-  <script src="../blockly/blocks_compressed.js"></script>
-  <script src="../blockly/javascript_compressed.js"></script>
-  <script src="../blockly/msg/js/en.js"></script>
-  <script src="../blockly/customblocks.js"></script>
-
-      <!-- Blockly -->
+        
+        <link href="../css/freelancer.min.css" rel="stylesheet">
+        <link href="../css/led.css" rel="stylesheet">
 
 
-  </head>
+     s
+      <script src="../blockly/blockly_compressed.js"></script>
+      <script src="../blockly/blocks_compressed.js"></script>
+      <script src="../blockly/javascript_compressed.js"></script>
+      <script src="../blockly/msg/js/en.js"></script>
+      <script src="../blockly/customblocks.js"></script>
+
+          <!-- Blockly -->
 
 
-  <body id="page-top"  ng-app="primerEj" ng-controller="primerEjercicioController">
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="../index.html">Arduinito Educativo</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fa fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="../index.html#portfolio">Actividades</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+      </head>
 
 
-    <section style="">
-      <div class="container">
-        <h3 class="text-center" style="margin-top:20px;">Primer Ejercicio</h3>
-        <hr class="star-primary">
-        <div class="row">
-          <table style="width:100%;">
-            <tr>
-              <td style="width:25%;">
-                <p>La idea seria conectar en el zocalo 13 del Arduino Uno un Led y en el zocalo 12 un led  y luego con los bloques prenderlos,apagarlos y hacerlos titilar  </p>
+      <body id="page-top"  ng-app="primerEj" ng-controller="primerEjercicioController">
 
-                 <p><span class="badge badge-primary">Resultado de ejecución</span></p>
-                <div id="leds">
-                  
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+          <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="../index.html">Arduinito Educativo</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              Menu
+              <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="../index.html#portfolio">Actividades</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+
+
+
+        <section style="">
+          <div class="container">
+            <h3 class="text-center" style="margin-top:20px;">Primer Ejercicio</h3>
+            <hr class="star-primary">
+            <div class="row">
+              <table style="width:100%;">
+                <tr>
+                  <td style="width:25%;">
+                    <p>La idea seria conectar en el zocalo 13 del Arduino Uno un Led y en el zocalo 12 un led  y luego con los bloques prenderlos,apagarlos y hacerlos titilar  </p>
+
+                     <p><span class="badge badge-primary">Resultado de ejecución</span></p>
+                    <div id="leds">
+                      
+                    </div>
+                     </td>
+                  <td style="width:70%;">
+                    <div id="blocklyDiv" style="height: 480px; width: 100%;"></div>
+
+                    <xml id="toolbox" style="display: none;">
+                              <category name="Bloques para leds">
+                                <block type="bloqueLed">
+                                  <field name="switch">Prendido</field>
+                                </block>
+                              </category>
+                    </xml>
+                  </td>
+                  <td style="width:5%;">
+                    <button type="button" class="btn btn-success" style="height: 480px;" id="btnEjecutar"  ng-click="runCode()">Ejecutar</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="width:25%;">
+                  <p><span class="badge badge-primary">Resultado Esperado</span></p>
+                 <div class="led-box">
+                    <div id ="led12" class="led-green-blink"></div>
+
+                   </div>
+                   <div class="led-box">
+                     <div id="led13" class="led-green-blink"></div>
+                </td>
+                </tr>
+              </table>
+
+            </div>
+          </div>
+        </section>
+
+
+
+
+
+         <!-- Footer -->
+        <footer class="text-center">
+          <div class="footer-above">
+            <div class="container">
+              <div class="row">
+                <div class="footer-col col-md-4">
                 </div>
-                 </td>
-              <td style="width:70%;">
-                <div id="blocklyDiv" style="height: 480px; width: 100%;"></div>
+                <div class="footer-col col-md-4">
+                  <h3>En la Web</h3>
+                     <a href="http://github.com/santiagoladavaz/Arduinito">
+                        <i class="fa fa-github fa-5x"></i>
+                      </a>
+                </div>
 
-                <xml id="toolbox" style="display: none;">
-                          <category name="Bloques para leds">
-                            <block type="bloqueLed">
-                              <field name="switch">Prendido</field>
-                            </block>
-                          </category>
-                </xml>
-              </td>
-              <td style="width:5%;">
-                <button type="button" class="btn btn-success" style="height: 480px;" id="btnEjecutar"  ng-click="runCode()">Ejecutar</button>
-              </td>
-            </tr>
-            <tr>
-              <td style="width:25%;">
-              <p><span class="badge badge-primary">Resultado Esperado</span></p>
-             <div class="led-box">
-                <div id ="led12" class="led-green-blink"></div>
-
-               </div>
-               <div class="led-box">
-                 <div id="led13" class="led-green-blink"></div>
-            </td>
-            </tr>
-          </table>
-
-        </div>
-      </div>
-    </section>
-
-
-
-
-
-     <!-- Footer -->
-    <footer class="text-center">
-      <div class="footer-above">
-        <div class="container">
-          <div class="row">
-            <div class="footer-col col-md-4">
-            </div>
-            <div class="footer-col col-md-4">
-              <h3>En la Web</h3>
-                 <a href="http://github.com/santiagoladavaz/Arduinito">
-                    <i class="fa fa-github fa-5x"></i>
-                  </a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      <div class="footer-below">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              Copyright &copy; Arduinito 2017
+              </div>
             </div>
           </div>
+          <div class="footer-below">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  Copyright &copy; Arduinito 2017
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+
+
+        <div class="scroll-top d-lg-none">
+          <a class="btn btn-primary js-scroll-trigger" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+          </a>
         </div>
+
       </div>
-    </footer>
 
 
-    <div class="scroll-top d-lg-none">
-      <a class="btn btn-primary js-scroll-trigger" href="#page-top">
-        <i class="fa fa-chevron-up"></i>
-      </a>
-    </div>
+        <script src="../vendor/jquery/jquery.min.js"></script>
+        <script src="../vendor/popper/popper.min.js"></script>
+        <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="../js/freelancer.min.js"></script>
+        <script src="../js/socket.io-client/dist/socket.io.js"></script>
+        
+        <script src="../js/angular.min.js"></script>
+        <script src="../js/bootbox.min.js"></script>
+        
+        <script src="../js/angular-socket-io/socket.js"></script>
+        <script src="../js/controller/primerEjercicioController.js"></script>
 
-  </div>
+        <script>
+        var workspace = Blockly.inject("blocklyDiv", {
+          media: "../blockly/media/",
+          toolbox: document.getElementById("toolbox")
+        });
+        </script>
+      </body>
 
-
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/popper/popper.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="../js/freelancer.min.js"></script>
-    <script src="../js/socket.io-client/dist/socket.io.js"></script>
-    <script type="text/javascript" src="../js/angular.min.js"></script>
-    <script src="../js/angular-socket-io/socket.js"></script>
-    <script type="text/javascript" src="../js/controller/primerEjercicioController.js"></script>
-
-    <script>
-    var workspace = Blockly.inject("blocklyDiv", {
-      media: "../blockly/media/",
-      toolbox: document.getElementById("toolbox")
-    });
-    </script>
-  </body>
-
-</html>
+    </html>

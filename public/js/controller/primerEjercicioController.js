@@ -24,6 +24,7 @@ Blockly.JavaScript["bloqueLed"] = function(block) {
           try{
            console.log(code);
            eval(code);
+           validar();
           }catch(e){
             alert(e);
           }
@@ -40,6 +41,14 @@ Blockly.JavaScript["bloqueLed"] = function(block) {
 			var html = "<div class='led-box'> <div id ='"+ pin + "' class='" + newClass + "'></div></div>";
 			$("#leds").append(html);
 		}
+    };
+
+    function validar(){
+       var num = $('.led-titilar').length;
+       if(num == 2)
+          bootbox.alert("Has llegado al resultado esperado!");
+        else
+          bootbox.alert("El resultado final y el esperado no son iguales!");
     };
 
 
