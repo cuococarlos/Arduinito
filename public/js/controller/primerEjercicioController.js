@@ -8,7 +8,7 @@ Blockly.JavaScript["bloqueLed"] = function(block) {
   var code;
   var dropdown_switch = block.getFieldValue("Switch");
   var pin=block.getFieldValue("PIN");
-  removerCss("led-" + dropdown_switch,pin);
+  removerCss("led-" + dropdown_switch,pin,dropdown_switch);
   code = "mySocket.emit('led:" + dropdown_switch + "'," + pin + ");";
   return code;
 };
@@ -30,7 +30,20 @@ Blockly.JavaScript["bloqueLed"] = function(block) {
           }
     };
 	
-    function removerCss(newClass,pin){
+    function removerCss(newClass,pin,estado){
+
+    var tooltip;
+    switch(estado) {
+    case "prender":
+        tooltip = "Prendido";
+        break;
+    case "apagar":
+         tooltip = "Apagado";
+        break;
+    case "titilar":
+        tooltip = "Titilando";
+    }
+
 		if($("#" + pin).hasClass('led-prender') || $("#" + pin).hasClass('led-apagar') || $("#" + pin).hasClass('led-titilar') )
 		{
 			var clase = $('#'+ pin).attr('class');
@@ -38,7 +51,7 @@ Blockly.JavaScript["bloqueLed"] = function(block) {
 		}
 		else
 		{
-			var html = "<div class='led-box'> <div id ='"+ pin + "' class='" + newClass + "'></div></div>";
+			var html = "<div class='led-box'> <div id ='"+ pin + "' class='" + newClass + " data-toggle='tooltip' title=' Led "+pin+ ": "+ tooltip +"'></div></div>";
 			$("#leds").append(html);
 		}
     };
