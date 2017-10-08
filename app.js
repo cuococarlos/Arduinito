@@ -16,6 +16,14 @@ app.get('/ej1',function(req,res){
   res.sendfile('public/views/primerEjercicio.html');
 });
 
+app.get('/ej2',function(req,res){
+  res.sendfile('public/views/segundoEjercicio.html');
+});
+
+app.get('/ej3',function(req,res){
+  res.sendfile('public/views/tercerEjercicio.html');
+});
+
 app.use(express.static('public'));
 
 server.listen(port, 'localhost');

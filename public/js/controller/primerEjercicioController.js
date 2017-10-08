@@ -7,7 +7,7 @@ app.controller("primerEjercicioController", function($scope,mySocket) {
 Blockly.JavaScript["bloqueLed"] = function(block) {
   var code;
   var dropdown_switch = block.getFieldValue("Switch");
-  var pin=block.getFieldValue("PIN");
+  var pin = block.getFieldValue("PIN");
   removerCss("led-" + dropdown_switch,pin,dropdown_switch);
   code = "mySocket.emit('led:" + dropdown_switch + "'," + pin + ");";
   return code;

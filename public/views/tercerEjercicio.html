@@ -24,7 +24,7 @@
       <script src="../blockly/blocks_compressed.js"></script>
       <script src="../blockly/javascript_compressed.js"></script>
       <script src="../blockly/msg/js/en.js"></script>
-      <script src="../blockly/customblocks.js"></script>
+      <script src="../blockly/customtateti.js"></script>
 
           <!-- Blockly -->
 
@@ -32,7 +32,7 @@
       </head>
 
 
-      <body id="page-top"  ng-app="primerEj" ng-controller="primerEjercicioController">
+      <body id="page-top"  ng-app="tercerEj" ng-controller="tercerEjercicioController">
 
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -57,24 +57,24 @@
 
         <section style="">
           <div class="container">
-            <h3 class="text-center" style="margin-top:20px;">Primer Ejercicio</h3>
+            <h3 class="text-center" style="margin-top:20px;">Ta Te Ti</h3>
             <hr class="star-primary">
             <div class="row">
               <table style="width:100%;">
                 <tr>
                   <td style="width:25%;">
-                    <p>La idea seria conectar en el zocalo 12 del Arduino Uno un Led y en el zocalo 13 un led  y luego con los bloques prenderlos,apagarlos y hacerlos titilar  </p>
+                    <p></p>
 
                      <p><span class="badge badge-primary">Resultado de ejecución</span></p>
                     <div id="leds">
                       
                     </div>
                      </td>
-                  <td style="width:70%;">
+                  <td style="width:35%;">
                     <div id="blocklyDiv" style="height: 480px; width: 100%;"></div>
 
                     <xml id="toolbox" style="display: none;">
-                              <category name="Bloques para leds">
+                              <category name="Jugador 1">
                                 <block type="bloqueLed">
                                   <field name="switch">Prendido</field>
                                 </block>
@@ -84,18 +84,22 @@
                   <td style="width:5%;">
                     <button type="button" class="btn btn-success" style="height: 480px;" id="btnEjecutar"  ng-click="runCode()">Ejecutar</button>
                   </td>
-                </tr>
-                <tr>
-                  <td style="width:25%;">
-                  <p><span class="badge badge-primary">Resultado Esperado</span></p>
-                 <div class="led-box">
-                    <div id ="led12" class="led-green-blink" data-toggle="tooltip" title="Led 12: Titilando"></div>
+                    <td style="width:35%;">
+                    <div id="player2" style="height: 480px; width: 100%;"></div>
 
-                   </div>
-                   <div class="led-box">
-                     <div id="led13" class="led-green-blink" data-toggle="tooltip" title="Led 13: Titilando"></div>
-                </td>
+                    <xml id="player2Toolbox" style="display: none;">
+                              <category name="Jugador 2">
+                                <block type="bloquePlayer2">
+                                  <field name="switch">Prendido</field>
+                                </block>
+                              </category>
+                    </xml>
+                  </td>
+                  <td style="width:5%;">
+                    <button type="button" class="btn btn-success" style="height: 480px;" id="btnEjecutar"  ng-click="runPlayer2()">Ejecutar</button>
+                  </td>
                 </tr>
+              
               </table>
 
             </div>
@@ -155,13 +159,18 @@
         <script src="../js/bootbox.min.js"></script>
         
         <script src="../js/angular-socket-io/socket.js"></script>
-        <script src="../js/controller/primerEjercicioController.js"></script>
+        <script src="../js/controller/tercerEjercicioController.js"></script>
 
         <script>
 
         var workspace = Blockly.inject("blocklyDiv", {
           media: "../blockly/media/",
           toolbox: document.getElementById("toolbox")
+        });
+
+        var workspace = Blockly.inject("player2", {
+          media: "../blockly/media/",
+          toolbox: document.getElementById("player2Toolbox")
         });
         </script>
       </body>
