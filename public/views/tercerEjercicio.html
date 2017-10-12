@@ -1,7 +1,7 @@
     <html lang="en">
 
       <head>
-
+        <link rel="icon" type="image/png" href="../img/profile.png" />
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
@@ -19,7 +19,6 @@
         <link href="../css/led.css" rel="stylesheet">
 
 
-     s
       <script src="../blockly/blockly_compressed.js"></script>
       <script src="../blockly/blocks_compressed.js"></script>
       <script src="../blockly/javascript_compressed.js"></script>
@@ -81,8 +80,8 @@
                               </category>
                     </xml>
                   </td>
-                  <td style="width:5%;">
-                    <button type="button" class="btn btn-success" style="height: 480px;" id="btnEjecutar"  ng-click="runCode()">Ejecutar</button>
+                  <td style="width:10%;">
+                    <button type="button" class="btn btn-success" style="height: 480px; background-color:#a9ab3c" id="btnEjecutar"  ng-click="runCode()">Ejecutar</button>
                   </td>
                     <td style="width:35%;">
                     <div id="player2" style="height: 480px; width: 100%;"></div>
@@ -90,13 +89,13 @@
                     <xml id="player2Toolbox" style="display: none;">
                               <category name="Jugador 2">
                                 <block type="bloquePlayer2">
-                                  <field name="switch">Prendido</field>
+                                  <field name="switch">Titilar</field>
                                 </block>
                               </category>
                     </xml>
                   </td>
                   <td style="width:5%;">
-                    <button type="button" class="btn btn-success" style="height: 480px;" id="btnEjecutar"  ng-click="runPlayer2()">Ejecutar</button>
+                    <button type="button" class="btn btn-success" style="height: 480px; background-color:#3cab5e;" id="btnEjecutar"  ng-click="runCode()" disabled>Ejecutar</button>
                   </td>
                 </tr>
               
