@@ -70,11 +70,11 @@
                     </div>
                      </td>
                   <td style="width:35%;">
-                    <div id="blocklyDiv" style="height: 480px; width: 100%;"></div>
+                    <div id="blocklyplayer1" style="height: 480px; width: 100%;"></div>
 
                     <xml id="toolbox" style="display: none;">
                               <category name="Jugador 1">
-                                <block type="bloqueLed">
+                                <block type="bloquePlayer1">
                                   <field name="switch">Prendido</field>
                                 </block>
                               </category>
@@ -84,7 +84,7 @@
                     <button type="button" class="btn btn-success" style="height: 480px; background-color:#a9ab3c" id="btnPlayerOne"  ng-click="runCode()">Ejecutar</button>
                   </td>
                     <td style="width:35%;">
-                    <div id="player2" style="height: 480px; width: 100%;"></div>
+                    <div id="blocklyplayer2" style="height: 480px; width: 100%;"></div>
 
                     <xml id="player2Toolbox" style="display: none;">
                               <category name="Jugador 2">
@@ -162,15 +162,15 @@
 
         <script>
 
-        var workspace = Blockly.inject("blocklyDiv", {
+        var workspace = Blockly.inject("blocklyplayer1", {
           media: "../blockly/media/",
           toolbox: document.getElementById("toolbox")
         });
 
-        var workspace = Blockly.inject("player2", {
-          media: "../blockly/media/",
-          toolbox: document.getElementById("player2Toolbox")
-        });
+         var workspace2 = Blockly.inject("blocklyplayer2", {
+            media: "../blockly/media/",
+           toolbox: document.getElementById("player2Toolbox")
+          });
         </script>
       </body>
 
