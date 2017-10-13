@@ -67,4 +67,15 @@
       };
 
 
+      function swapPlayer(){
+          if($('#btnPlayerTwo').prop('disabled')){
+            $('#btnPlayerTwo').prop('disabled', false);
+            $('#btnPlayerOne').prop('disabled', true);
+          }
+          else{
+          $('#btnPlayerTwo').prop('disabled', true);
+          $('#btnPlayerOne').prop('disabled', false);
+        }
+      }
+
   })
