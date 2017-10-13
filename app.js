@@ -25,8 +25,9 @@ app.get('/ej3',function(req,res){
 });
 
 app.use(express.static('public'));
-
+app.use('/scripts', express.static(__dirname + '/node_modules'));
 server.listen(port, 'localhost');
+
 server.on('listening', function() {
   console.log('Express server started on port %s at %s', server.address().port, server.address().address);
 });
