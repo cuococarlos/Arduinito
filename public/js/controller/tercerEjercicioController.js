@@ -34,22 +34,14 @@
             Blockly.JavaScript.INFINITE_LOOP_TRAP =
                 'if(--window.LoopTrap == 0) throw "Inifinite Loop";\n';
             var code = Blockly.JavaScript.workspaceToCode(workspace);
-            var code2= Blockly.JavaScript.workspaceToCode(workspace2);
+            var code = Blockly.JavaScript.workspaceToCode(workspace2);
             Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
             try{
-              if (Blockly.mainWorkspace !== null) {
-                          Blockly.mainWorkspace.clear();
-                      };
-              alert(code);
-              if(code != "")
-                {eval(code);
-                  code="";
-                        }
-                else{
-                    alert("code2"+code2)
-                    eval(code2);
+                if (Blockly.mainWorkspace !== null) 
+                {
+                    Blockly.mainWorkspace.clear();
                 }
-
+                eval(code);
             }catch(e){
               alert(e);
             }
