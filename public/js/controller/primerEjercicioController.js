@@ -59,7 +59,8 @@ Blockly.JavaScript["bloqueLed"] = function(block) {
     function validar(){
        var titilar = $('.led-titilar').length;
        var prender = $('.led-prender').length;
-       if(titilar == 2 || prender == 4)
+       var apagar = $('.led-apagar').length;
+       if(titilar == 2 || (prender == 2 && apagar == 4))
           bootbox.alert("Has llegado al resultado esperado!");
         else
           bootbox.alert("El resultado final y el esperado no son iguales!");
