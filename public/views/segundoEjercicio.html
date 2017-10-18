@@ -55,40 +55,32 @@
 
 
 
-        <section style="">
-          <div class="container">
-            <h3 class="text-center" style="margin-top:20px;">Segundo Ejercicio</h3>
-            <hr class="star-primary">
-            <div class="row">
-              <table style="width:100%;">
-                <tr>
-                  <td style="width:25%;">
-                    <p>Se deberán conectar 4 leds. Primero se deben prender los leds de los extremos. Luego prender los 2 leds del medio y apagar los de los extremos. Para finalizar, deben quedar prendidos el primer y el tercer led, el segundo y el cuarto apagados.</p>
+       <section style="">
+      <div class="container">
+        <h3 class="text-center" style="margin-top:20px;">Segundo Ejercicio</h3>
+        <hr class="star-primary">
+        <div class="row">
+          <table style="width:100%;">
+            <tr>
+              <td style="width:25%;vertical-align: top;">
+        
+        <table>
+        <tr>
+        <td>
+           <p>Se deberán conectar 4 leds. Primero se deben prender los leds de los extremos. Luego prender los 2 leds del medio y apagar los de los extremos. Para finalizar, deben quedar prendidos el primer y el tercer led, el segundo y el cuarto apagados.</p>
 
-                     <p><span class="badge badge-primary">Resultado de ejecución</span></p>
-                    <div id="leds">
-
-                    </div>
-                     </td>
-                  <td style="width:70%;">
-                    <div id="blocklyDiv" style="height: 480px; width: 100%;"></div>
-
-                    <xml id="toolbox" style="display: none;">
-                              <category name="Bloques para leds">
-                                <block type="bloqueLed">
-                                  <field name="switch">Prendido</field>
-                                </block>
-                              </category>
-                    </xml>
-                  </td>
-                  <td style="width:5%;">
-                    <button type="button" class="btn btn-success" style="height: 480px;" id="btnEjecutar"  ng-click="runCode()">Ejecutar</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="width:25%;">
-                  <p><span class="badge badge-primary">Resultado Esperado</span></p>
-                 <div class="led-box">
+           <p><span class="badge badge-primary">Resultado de ejecución</span></p>
+          <div id="leds">
+            
+          </div>
+        </td>
+        </tr>
+        <tr>
+        <td style="padding-top:20px;">
+        
+         
+              <p><span class="badge badge-primary">Resultado Esperado</span></p>
+             <div class="led-box">
                     <div id ="led1" class="led-green" data-toggle="tooltip" title="Led 1: Prendido"></div>
                 </div>
                    <div class="led-box">
@@ -103,13 +95,34 @@
                      <div id="led4" class="led-apagar" data-toggle="tooltip" title="Led 4: Prendido">
                      </div>
                    </div>
-                </td>
-                </tr>
-              </table>
+            
+                 </td>
+        </tr>
+        </table>
+        </td>
+              <td style="width:70%;">
+                <div id="blocklyDiv" style="height: 480px; width: 100%;"></div>
 
-            </div>
-          </div>
-        </section>
+                <xml id="toolbox" style="display: none;">
+                          <category name="Bloques para leds">
+                            <block type="bloqueLed">
+                              <field name="switch">Prendido</field>
+                            </block>
+                          </category>
+                </xml>
+              </td>
+              <td style="width:5%;">
+                <button type="button" class="btn btn-success" style="height: 480px;" id="btnEjecutar"  ng-click="runCode()">Ejecutar</button>
+              </td>
+            </tr>
+           
+             
+            
+          </table>
+
+        </div>
+      </div>
+    </section>
 
 
 
@@ -167,6 +180,12 @@
         <script src="../js/controller/primerEjercicioController.js"></script>
 
         <script>
+
+           $(document).ready(function(){
+               $('[data-toggle="tooltip"]').tooltip(); 
+          });
+
+
 
         var workspace = Blockly.inject("blocklyDiv", {
           media: "../blockly/media/",

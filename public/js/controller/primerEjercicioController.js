@@ -31,7 +31,6 @@ Blockly.JavaScript["bloqueLed"] = function(block) {
     };
 	
     function removerCss(newClass,pin,estado){
-
     var tooltip;
     switch(estado) {
     case "prender":
@@ -51,7 +50,7 @@ Blockly.JavaScript["bloqueLed"] = function(block) {
 		}
 		else
 		{
-			var html = "<div class='led-box'> <div id ='"+ pin + "' class='" + newClass + " data-toggle='tooltip' title=' Led "+pin+ ": "+ tooltip +"'></div></div>";
+			var html = "<div class='led-box'> <div id ='"+ pin + "' class='" + newClass + "' data-toggle='tooltip' title=' Led "+pin+ ": "+ tooltip +"'></div></div>";
 			$("#leds").append(html);
 		}
     };

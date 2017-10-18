@@ -55,21 +55,31 @@
 
 
         <section style="">
-          <div class="container">
-            <h3 class="text-center" style="margin-top:20px;">Ta Te Ti</h3>
-            <hr class="star-primary">
-            <div class="row">
-              <table style="width:100%;">
-                <tr>
-                  <td style="width:25%;">
-                    <p></p>
+      <div class="container">
+        <h3 class="text-center" style="margin-top:20px;">Primer Ejercicio</h3>
+        <hr class="star-primary">
+        <div class="row">
+          <table style="width:100%;">
+            <tr>
+              <td style="width:25%;vertical-align: top;">
+        
+        <table>
+        <tr>
+        <td>
+          <p>El primer jugador deberá prender los leds para formar la línea. El segundo la deberá formar haciendo que los leds titilen.</p>
 
-                     <p><span class="badge badge-primary">Resultado de ejecución</span></p>
-                    <div id="leds">
-
-                    </div>
-                     </td>
-                  <td style="width:35%;">
+           <p><span class="badge badge-primary">Resultado de ejecución</span></p>
+          <div id="leds">
+            
+          </div>
+        </td>
+        </tr>
+        <tr>
+        
+        </tr>
+        </table>
+        </td>
+               <td style="width:35%;">
                     <div id="blocklyplayer1" style="height: 480px; width: 100%;"></div>
 
                     <xml id="toolbox" style="display: none;">
@@ -101,9 +111,9 @@
 
               </table>
 
-            </div>
-          </div>
-        </section>
+        </div>
+      </div>
+    </section>
 
 
 
@@ -161,6 +171,10 @@
         <script src="../js/controller/tercerEjercicioController.js"></script>
 
         <script>
+          $(document).ready(function(){
+               $('[data-toggle="tooltip"]').tooltip(); 
+          });
+
 
         var workspace = Blockly.inject("blocklyplayer1", {
           media: "../blockly/media/",

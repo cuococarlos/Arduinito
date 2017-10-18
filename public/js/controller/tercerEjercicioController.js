@@ -69,7 +69,7 @@
     		}
     		else
     		{
-    			var html = "<div class='led-box'> <div id ='"+ pin + "' class='" + newClass + " data-toggle='tooltip' title=' Led "+pin+ ": "+ tooltip +"'></div></div>";
+    			var html = "<div class='led-box'> <div id ='"+ pin + "' class='" + newClass + "' data-toggle='tooltip' title=' Led "+pin+ ": "+ tooltip +"'></div></div>";
     			$("#leds").append(html);
     		}
       };

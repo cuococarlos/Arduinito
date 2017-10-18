@@ -55,51 +55,64 @@
 
 
         <section style="">
-          <div class="container">
-            <h3 class="text-center" style="margin-top:20px;">Primer Ejercicio</h3>
-            <hr class="star-primary">
-            <div class="row">
-              <table style="width:100%;">
-                <tr>
-                  <td style="width:25%;">
-                    <p>La idea seria conectar en el zocalo 12 del Arduino Uno un Led y en el zocalo 13 un led  y luego con los bloques prenderlos,apagarlos y hacerlos titilar  </p>
+      <div class="container">
+        <h3 class="text-center" style="margin-top:20px;">Primer Ejercicio</h3>
+        <hr class="star-primary">
+        <div class="row">
+          <table style="width:100%;">
+            <tr>
+              <td style="width:25%;vertical-align: top;">
+        
+        <table>
+        <tr>
+        <td>
+          <p>La idea seria conectar en el zócalo 12 del Arduino Uno un Led y en el zócalo 13 un led  y luego con los bloques prenderlos,apagarlos y hacerlos titilar.</p>
 
-                     <p><span class="badge badge-primary">Resultado de ejecución</span></p>
-                    <div id="leds">
-
-                    </div>
-                     </td>
-                  <td style="width:70%;">
-                    <div id="blocklyDiv" style="height: 480px; width: 100%;"></div>
-
-                    <xml id="toolbox" style="display: none;">
-                              <category name="Bloques para leds">
-                                <block type="bloqueLed">
-                                  <field name="switch">Prendido</field>
-                                </block>
-                              </category>
-                    </xml>
-                  </td>
-                  <td style="width:5%;">
-                    <button type="button" class="btn btn-success" style="height: 480px;" id="btnEjecutar"  ng-click="runCode()">Ejecutar</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="width:25%;">
-                  <p><span class="badge badge-primary">Resultado Esperado</span></p>
-                 <div class="led-box">
-                    <div id ="led12" class="led-green-blink" data-toggle="tooltip" title="Led 12: Titilando"></div>
-
-                   </div>
-                   <div class="led-box">
-                     <div id="led13" class="led-green-blink" data-toggle="tooltip" title="Led 13: Titilando"></div>
-                </td>
-                </tr>
-              </table>
-
-            </div>
+           <p><span class="badge badge-primary">Resultado de ejecución</span></p>
+          <div id="leds">
+            
           </div>
-        </section>
+        </td>
+        </tr>
+        <tr>
+        <td style="padding-top:20px;">
+        
+         
+              <p><span class="badge badge-primary">Resultado Esperado</span></p>
+             <div class="led-box">
+                <div id ="led12" class="led-green-blink" data-toggle="tooltip" title="Led 12 : Titilando"></div>
+
+               </div>
+               <div class="led-box">
+                 <div id="led13" class="led-green-blink" data-toggle="tooltip" title="Led 13 : Titilando"></div>
+            
+                 </td>
+        </tr>
+        </table>
+        </td>
+              <td style="width:70%;">
+                <div id="blocklyDiv" style="height: 480px; width: 100%;"></div>
+
+                <xml id="toolbox" style="display: none;">
+                          <category name="Bloques para leds">
+                            <block type="bloqueLed">
+                              <field name="switch">Prendido</field>
+                            </block>
+                          </category>
+                </xml>
+              </td>
+              <td style="width:5%;">
+                <button type="button" class="btn btn-success" style="height: 480px;" id="btnEjecutar"  ng-click="runCode()">Ejecutar</button>
+              </td>
+            </tr>
+           
+             
+            
+          </table>
+
+        </div>
+      </div>
+    </section>
 
 
 
