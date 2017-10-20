@@ -171,6 +171,11 @@
 
         <script>
 
+           $(document).ready(function(){
+               $('[data-toggle="tooltip"]').tooltip();
+          });
+
+
         var workspace = Blockly.inject("blocklyDiv", {
           media: "../blockly/media/",
           toolbox: document.getElementById("toolbox")
