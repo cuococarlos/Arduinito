@@ -25,6 +25,7 @@ Blockly.JavaScript["bloqueLed"] = function(block) {
            console.log(code);
            eval(code);
            validar();
+           refreshToolTip();
           }catch(e){
             alert(e);
           }
@@ -65,6 +66,10 @@ Blockly.JavaScript["bloqueLed"] = function(block) {
           bootbox.alert("El resultado final y el esperado no son iguales!");
     };
 
+
+    function refreshToolTip(){
+        $('[data-toggle="tooltip"]').tooltip();
+    };
 
 
 })
