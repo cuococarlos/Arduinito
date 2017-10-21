@@ -20,11 +20,12 @@
 
 
 
-      <script src="../blockly/blockly_compressed.js"></script>
-      <script src="../blockly/blocks_compressed.js"></script>
-      <script src="../blockly/javascript_compressed.js"></script>
-      <script src="../blockly/msg/js/en.js"></script>
-      <script src="../blockly/customtateti.js"></script>
+        <script src="/scripts/blockly/blockly_compressed.js"></script>
+        <script src="/scripts/blockly/blocks_compressed.js"></script>
+        <script src="/scripts/blockly/javascript_compressed.js"></script>
+        <script src="/scripts/blockly//msg/js/en.js"></script>
+
+        <script src="../js/customtateti.js"></script>
 
           <!-- Blockly -->
 
@@ -179,12 +180,12 @@
 
 
         var workspace = Blockly.inject("blocklyplayer1", {
-          media: "../blockly/media/",
+          media: "/scripts/blockly/media/",
           toolbox: document.getElementById("toolbox")
         });
 
          var workspace2 = Blockly.inject("blocklyplayer2", {
-            media: "../blockly/media/",
+            media: "/scripts/blockly/media/",
            toolbox: document.getElementById("player2Toolbox")
           });
         </script>

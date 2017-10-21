@@ -8,7 +8,6 @@
     var code;
     var dropdown_switch = block.getFieldValue("Switch");
     var pin = block.getFieldValue("PIN");
-    console.log("entre")
     removerCss("led-" + dropdown_switch,pin,dropdown_switch);
     swapPlayer2();
     code = "mySocket.emit('led:" + dropdown_switch + "'," + pin + ");";
@@ -37,7 +36,7 @@
             var code = Blockly.JavaScript.workspaceToCode(workspace2);
             Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
             try{
-                if (Blockly.mainWorkspace !== null) 
+                if (Blockly.mainWorkspace !== null)
                 {
                     Blockly.mainWorkspace.clear();
                 }
@@ -49,7 +48,6 @@
 
 
       function removerCss(newClass,pin,estado){
-
         var tooltip;
         switch(estado) {
         case "prender":

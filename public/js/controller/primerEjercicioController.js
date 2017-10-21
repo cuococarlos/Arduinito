@@ -30,7 +30,7 @@ Blockly.JavaScript["bloqueLed"] = function(block) {
             alert(e);
           }
     };
-	
+
     function removerCss(newClass,pin,estado){
     var tooltip;
     switch(estado) {
@@ -60,7 +60,7 @@ Blockly.JavaScript["bloqueLed"] = function(block) {
        var titilar = $('.led-titilar').length;
        var prender = $('.led-prender').length;
        var apagar = $('.led-apagar').length;
-       if(titilar == 2 || (prender == 2 && apagar == 4))
+       if(titilar == 2 || (prender == 6 && apagar == 8))
           bootbox.alert("Has llegado al resultado esperado!");
         else
           bootbox.alert("El resultado final y el esperado no son iguales!");

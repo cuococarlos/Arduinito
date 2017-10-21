@@ -8,6 +8,7 @@
   "dependencies": {
     "angular": "^1.6.4",
     "angular-socket-io": "^0.7.0",
+    "blockly": "^1.0.0",
     "body-parser": "~1.17.1",
     "bootbox": "^4.4.0",
     "bootstrap": "^4.0.0-beta",
