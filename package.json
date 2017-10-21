@@ -7,7 +7,9 @@
   },
   "dependencies": {
     "angular": "^1.6.4",
+    "angular-socket-io": "^0.7.0",
     "body-parser": "~1.17.1",
+    "bootbox": "^4.4.0",
     "bootstrap": "^4.0.0-beta",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
@@ -17,8 +19,9 @@
     "jquery": "^3.2.1",
     "jquery.easing": "^1.4.1",
     "morgan": "~1.8.1",
-    "popper.js": "^1.11.1",
+    "popper.js": "^1.12.3",
     "serve-favicon": "~2.4.2",
-    "socket.io": "^2.0.3"
+    "socket.io": "^2.0.3",
+    "startbootstrap-freelancer": "^4.0.0-beta"
   }
 }
