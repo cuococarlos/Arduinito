@@ -14,7 +14,18 @@ Blockly.Blocks['bloqueLed'] = {
  this.setHelpUrl("");
   }
 };
-
+Blockly.Blocks['wait'] = {
+  init: function() {
+    this.setHelpUrl('http://www.example.com/');
+    this.setColour(60);
+    this.appendDummyInput()
+        .appendField("wait")
+        .appendField(new Blockly.FieldDropdown([["half a second", "500"], ["a second", "1000"], ["two seconds", "2000"], ["five seconds", "5000"]]), "DELAY");
+    this.setPreviousStatement(true, "null");
+    this.setNextStatement(true, "null");
+    this.setTooltip('');
+  }
+};
 
 
 

@@ -1,18 +1,30 @@
+
 var app = angular.module("primerEj", ['btford.socket-io']);
 var mySocket = app.factory('mySocket',function(socketFactory){
   return socketFactory();
 });
+var pinesUsados=[];
+// var interpreter=app.factory('interpreter',function())
 app.controller("primerEjercicioController", function($scope,mySocket) {
+
 
 Blockly.JavaScript["bloqueLed"] = function(block) {
   var code;
   var dropdown_switch = block.getFieldValue("Switch");
-  var pin = block.getFieldValue("PIN");
   removerCss("led-" + dropdown_switch,pin,dropdown_switch);
+  var pin = block.getFieldValue("PIN");
   code = "mySocket.emit('led:" + dropdown_switch + "'," + pin + ");";
   return code;
 };
 
+Blockly.JavaScript['wait'] = function(block) {
+  var dropdown_delay = block.getFieldValue('DELAY');
+  // TODO: Assemble JavaScript into code variable.
+  //var code = "mySocket.emit('wait'," + dropdown_delay + ");";
+
+  var code='wait(' + dropdown_delay + ');';
+  return code;
+};
 
      $scope.runCode = function (){
 		 $("#leds").html('');
@@ -20,10 +32,15 @@ Blockly.JavaScript["bloqueLed"] = function(block) {
           Blockly.JavaScript.INFINITE_LOOP_TRAP =
               'if(--window.LoopTrap == 0) throw "Inifinite Loop";\n';
           var code = Blockly.JavaScript.workspaceToCode(workspace);
+          var code = Blockly.JavaScript.workspaceToCode(workspace);
+          var myInterpreter = new Interpreter(code);
+
           Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
           try{
            console.log(code);
+            //myInterpreter.run()
            eval(code);
+
            validar();
            refreshToolTip();
           }catch(e){

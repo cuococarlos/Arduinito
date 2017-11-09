@@ -66,4 +66,9 @@ io.on("connection", function(socket) {
       console.log("titilando");
     }, 1000);
   });
+  socket.on("wait", function(d) {
+    setTimeout(() => {
+      console.log("esperando");
+    }, d);
+  });
 });
