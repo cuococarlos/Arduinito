@@ -67,8 +67,5 @@ io.on("connection", function(socket) {
     }, 1000);
   });
   socket.on("wait", function(d) {
-    setTimeout(() => {
-      console.log("esperando");
-    }, d);
   });
 });

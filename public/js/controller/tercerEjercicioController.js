@@ -1,7 +1,3 @@
-import { sacarPin } from '../customtateti';
-
-
-
   var pines = [["1","1"], ["2","2"],["3","3"],["4","4"],["5","5"],["6","6"],["7","7"],["8","8"],["9","9"]];
   var app = angular.module("tercerEj", ['btford.socket-io']);
   var mySocket = app.factory('mySocket',function(socketFactory){
@@ -84,13 +80,13 @@ import { sacarPin } from '../customtateti';
   Blockly.JavaScript["bloquePlayer1"] = function(block) {
     var dropdown_switch = block.getFieldValue("Switch");
     var pin = block.getFieldValue("PIN");
-    removePinUsed(pin);
     removerCss("led-" + dropdown_switch,pin,dropdown_switch);
     swapPlayer2();
     winner(board);
-    var code = "mySocket.emit('led:" + dropdown_switch + "'," + pin + ");";
     sacarPin(pin);
+    var code = "mySocket.emit('led:" + dropdown_switch + "'," + pin + ");";
     return code;
+
   };
 
 
@@ -101,6 +97,7 @@ import { sacarPin } from '../customtateti';
     var code = "mySocket.emit('led:" + dropdown_switch + "'," + pin + ");";
     swapPlayer1();
     winner(board);
+    sacarPin(pin);
     return code;
   };
 
@@ -154,21 +151,7 @@ import { sacarPin } from '../customtateti';
       }
 
 
-        function remover(myArray,toRemove){
-          for( var i=myArray.length - 1; i>=0; i--){
-          for( var j=0; j<toRemove.length; j++){
-             if(myArray[i][1] && (myArray[i][1] === toRemove[j][1])){
-             	myArray.splice(i, 1);
-             	}
-             }
-          }
-          };
-
-        function removePinUsed(pin){
-          remover(pines,[pin,pin]);
-        };
-
-        function validarGanador(clase){
+    function validarGanador(clase){
           if (clase =='led-prender'){
             bootbox.alert(' Gano el jugador 1');
           }
