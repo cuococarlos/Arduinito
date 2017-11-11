@@ -83,53 +83,53 @@
         <tr>
             <td>
                 <div class="led-box">
-                  <div id ="led1" class="led-apagar"></div>
+                  <div id ="led1" class="led-apagar" data-toggle="tooltip" title="Led 1"></div>
                 </div>
               </td>
               <td>
                 <div class="led-box">
-                   <div id="led2" class="led-apagar"></div>
+                   <div id="led2" class="led-apagar" data-toggle="tooltip" title="Led 2"></div>
                 </div>
               </td>
               <td>
 
                 <div class="led-box">
-                  <div id ="led3" class="led-apagar"></div>
+                  <div id ="led3" class="led-apagar" data-toggle="tooltip" title="Led 3"></div>
                 </div>
             </td>
         </tr>
         <tr>
             <td>
               <div class="led-box">
-               <div id="led4" class="led-apagar"></div>
+               <div id="led4" class="led-apagar" data-toggle="tooltip" title="Led 4"></div>
             </div>
           </td>
           <td>
             <div class="led-box">
-              <div id ="led5" class="led-apagar"></div>
+              <div id ="led5" class="led-apagar" data-toggle="tooltip" title="Led 5"></div>
             </div>
           </td>
           <td>
             <div class="led-box">
-               <div id="led6" class="led-apagar"></div>
+               <div id="led6" class="led-apagar" data-toggle="tooltip" title="Led 6"></div>
             </div>
               </td>
         </tr>
         <tr>
           <td>
             <div class="led-box">
-              <div id ="led7" class="led-apagar"></div>
+              <div id ="led7" class="led-apagar" data-toggle="tooltip" title="Led 7"></div>
             </div>
           </td>
           <td>
 
             <div class="led-box">
-               <div id="led8" class="led-apagar"></div>
+               <div id="led8" class="led-apagar" data-toggle="tooltip" title="Led 8"></div>
             </div>
           </td>
           <td>
              <div class="led-box">
-               <div id="led9" class="led-apagar"></div>
+               <div id="led9" class="led-apagar"  data-toggle="tooltip" title="Led 9"></div>
             </div>
           </td>
         </tr>
@@ -190,8 +190,6 @@
                      <a href="http://github.com/santiagoladavaz/Arduinito">
                         <i class="fa fa-github fa-5x"></i>
                       </a>
-                      <!-- <p style="display:none"><b>You have <span id="capacity"></span> block(s) left.</b></p> -->
-
                 </div>
 
               </div>
@@ -243,13 +241,6 @@
           maxBlocks: 1,
           toolbox: document.getElementById("toolbox")
         });
-  //       function onchange(event) {
-  //       document.getElementById('capacity').textContent =
-  //       workspace.remainingCapacity();
-  // }
-  //
-  //   workspace.addChangeListener(onchange);
-  //   onchange();
 
          var workspace2 = Blockly.inject("blocklyplayer2", {
             media: "/scripts/blockly/media/",

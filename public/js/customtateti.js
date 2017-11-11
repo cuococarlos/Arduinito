@@ -1,4 +1,4 @@
-var pines = [["1","1"], ["2","2"],["3","3"],["4","4"],["5","5"],["6","6"],["7","7"],["8","8"],["9","9"]];
+var pines ;
 
 function remove(myArray,toRemove){
   function eqs(fst, snd) {
@@ -17,6 +17,9 @@ function sacarPin(pin){
   remove(pines,[pin,pin]);
 };
 
+function initDropdown(){
+  pines =[["1","1"], ["2","2"],["3","3"],["4","4"],["5","5"],["6","6"],["7","7"],["8","8"],["9","9"]];
+}
 
 
 

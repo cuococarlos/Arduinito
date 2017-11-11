@@ -5,18 +5,9 @@
   });
 
   app.controller("tercerEjercicioController", function($scope,mySocket) {
-
-    var board =  [[null,null,null],
-                  [null,null,null],
-                  [null,null,null]];
-
-    function getInitialBoard() {
-      return [
-        [null,null,null],
-        [null,null,null],
-        [null,null,null]];
-    }
-
+    var board;
+    var turno2=false;
+      inicializarJuego();
     // Devuelve las coordenadas como [fila,columna] de las posiciones
     // libres del tablero
     function getFreePositions(board) {
@@ -50,7 +41,10 @@
          validarGanador(board[1][1]);
       // verificar empate
       if (getFreePositions(board) == 0)
-        bootbox.alert("Hubo empate!");
+    {
+      bootbox.confirm("Empate <br> Quieren jugar de vuelta ?",
+      function(result){ reset() })
+    }
 
       return null;
     }
@@ -81,10 +75,10 @@
     var dropdown_switch = block.getFieldValue("Switch");
     var pin = block.getFieldValue("PIN");
     removerCss("led-" + dropdown_switch,pin,dropdown_switch);
+    var code = "mySocket.emit('led:" + dropdown_switch + "'," + pin + ");";
     swapPlayer2();
     winner(board);
     sacarPin(pin);
-    var code = "mySocket.emit('led:" + dropdown_switch + "'," + pin + ");";
     return code;
 
   };
@@ -108,16 +102,21 @@
             window.LoopTrap = 1000;
             Blockly.JavaScript.INFINITE_LOOP_TRAP =
                 'if(--window.LoopTrap == 0) throw "Inifinite Loop";\n';
-            var code = Blockly.JavaScript.workspaceToCode(workspace);
+
+            if(turno2){
             var code = Blockly.JavaScript.workspaceToCode(workspace2);
+          }else{
+            var code = Blockly.JavaScript.workspaceToCode(workspace);
+          }
+
             Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
             try{
+
                 if (Blockly.mainWorkspace !== null)
                 {
                     Blockly.mainWorkspace.clear();
                 }
                 eval(code);
-                //generarDropdown();
             }catch(e){
               alert(e);
             }
@@ -143,20 +142,54 @@
       function swapPlayer2(){
             $('#btnPlayerTwo').prop('disabled', false);
             $('#btnPlayerOne').prop('disabled', true);
+            Blockly.Blocks['bloquePlayer1'].disabled = true;
+            Blockly.Blocks['bloquePlayer2'].disabled = false;
+            turno2=true;
           };
 
      function swapPlayer1(){
           $('#btnPlayerOne').prop('disabled', false);
           $('#btnPlayerTwo').prop('disabled', true);
+          Blockly.Blocks['bloquePlayer1'].disabled = false;
+          Blockly.Blocks['bloquePlayer2'].disabled = true;
+          turno2=false;
       }
 
 
     function validarGanador(clase){
           if (clase =='led-prender'){
-            bootbox.alert(' Gano el jugador 1');
+            //bootbox.alert(' Gano el jugador 1');
+            bootbox.confirm("Gano el jugador 1<br> Quiere jugar de vuelta ?",
+            function(result){ reset() })
           }
           else{
-            bootbox.alert(' Gano el jugador 2');
+            bootbox.confirm("Gano el jugador 2<br> Quiere jugar de vuelta ?",
+            function(result){ reset() })
           }
+
         }
-  })
+
+function reset() {
+    Blockly.mainWorkspace.clear();
+    swapPlayer1();
+    resetLeds();
+    inicializarJuego(board);
+    mySocket.emit('reset');
+}
+
+function resetLeds() {
+    for (i = 1; i < 10; i++) {
+        var clase = $('#led' + i).attr('class');
+        $("#led" + i).removeClass(clase).addClass('led-apagar');
+    }
+}
+
+function inicializarJuego(){
+  initDropdown();
+  Blockly.Blocks['bloquePlayer2'].disabled = true;
+   board  =     [[null,null,null],
+                [null,null,null],
+                [null,null,null]];
+
+}
+})

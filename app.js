@@ -38,7 +38,8 @@ var leds = [];
 board.on("connect",function(){
 board.on("ready", function() {
 
-  for (i = 0; i < 20; i++) {
+  leds[1]= new five.Led(10);
+  for (i = 2; i < 20; i++) {
       leds[i] = new five.Led(i);
   }
 
@@ -68,4 +69,10 @@ io.on("connection", function(socket) {
   });
   socket.on("wait", function(d) {
   });
+  socket.on("reset",function(){
+    leds.forEach(function(element){
+      element.stop();
+      element.off();
+    })
+  })
 });

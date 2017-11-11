@@ -11,20 +11,20 @@ app.controller("primerEjercicioController", function($scope,mySocket) {
 Blockly.JavaScript["bloqueLed"] = function(block) {
   var code;
   var dropdown_switch = block.getFieldValue("Switch");
-  removerCss("led-" + dropdown_switch,pin,dropdown_switch);
   var pin = block.getFieldValue("PIN");
+  removerCss("led-" + dropdown_switch,pin,dropdown_switch);
   code = "mySocket.emit('led:" + dropdown_switch + "'," + pin + ");";
   return code;
 };
 
-Blockly.JavaScript['wait'] = function(block) {
-  var dropdown_delay = block.getFieldValue('DELAY');
-  // TODO: Assemble JavaScript into code variable.
-  //var code = "mySocket.emit('wait'," + dropdown_delay + ");";
-
-  var code='wait(' + dropdown_delay + ');';
-  return code;
-};
+// Blockly.JavaScript['wait'] = function(block) {
+//   var dropdown_delay = block.getFieldValue('DELAY');
+//
+//   //var code = "mySocket.emit('wait'," + dropdown_delay + ");";
+//
+//   var code='wait(' + dropdown_delay + ');';
+//   return code;
+// };
 
      $scope.runCode = function (){
 		 $("#leds").html('');
@@ -32,16 +32,13 @@ Blockly.JavaScript['wait'] = function(block) {
           Blockly.JavaScript.INFINITE_LOOP_TRAP =
               'if(--window.LoopTrap == 0) throw "Inifinite Loop";\n';
           var code = Blockly.JavaScript.workspaceToCode(workspace);
-          var code = Blockly.JavaScript.workspaceToCode(workspace);
-          var myInterpreter = new Interpreter(code);
+
 
           Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
           try{
-           console.log(code);
-            //myInterpreter.run()
-           eval(code);
+                 eval(code);
 
-           validar();
+           validar(code);
            refreshToolTip();
           }catch(e){
             alert(e);
@@ -73,20 +70,21 @@ Blockly.JavaScript['wait'] = function(block) {
 		}
     };
 
-    function validar(){
-       var titilar = $('.led-titilar').length;
-       var prender = $('.led-prender').length;
-       var apagar = $('.led-apagar').length;
-       if(titilar == 2 || (prender == 6 && apagar == 8))
+    function validar(code){
+      //  var titilar = $('.led-titilar').length;
+      //  var prender = $('.led-prender').length;
+      //  var apagar = $('.led-apagar').length;
+      if(code == resolucion)
           bootbox.alert("Has llegado al resultado esperado!");
-        else
+      else
           bootbox.alert("El resultado final y el esperado no son iguales!");
     };
 
-
     function refreshToolTip(){
+
         $('[data-toggle="tooltip"]').tooltip();
     };
 
+    var resolucion = "mySocket.emit('led:prender',12);mySocket.emit('led:prender',13);mySocket.emit('led:apagar',12);mySocket.emit('led:apagar',13);mySocket.emit('led:titilar',12);mySocket.emit('led:titilar',13);";
 
 })
