@@ -190,6 +190,8 @@
                      <a href="http://github.com/santiagoladavaz/Arduinito">
                         <i class="fa fa-github fa-5x"></i>
                       </a>
+                      <!-- <p style="display:none"><b>You have <span id="capacity"></span> block(s) left.</b></p> -->
+
                 </div>
 
               </div>
@@ -238,11 +240,20 @@
 
         var workspace = Blockly.inject("blocklyplayer1", {
           media: "/scripts/blockly/media/",
+          maxBlocks: 1,
           toolbox: document.getElementById("toolbox")
         });
+  //       function onchange(event) {
+  //       document.getElementById('capacity').textContent =
+  //       workspace.remainingCapacity();
+  // }
+  //
+  //   workspace.addChangeListener(onchange);
+  //   onchange();
 
          var workspace2 = Blockly.inject("blocklyplayer2", {
             media: "/scripts/blockly/media/",
+            maxBlocks: 1,
            toolbox: document.getElementById("player2Toolbox")
           });
         </script>
